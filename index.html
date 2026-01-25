@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h2>📝 My To-Do List</h2>
+
+    <div class="input-section">
+      <div class="input-box">
+        <span class="icon">🔍</span>
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Enter your task"
+          autocomplete="off"
+        />
+      </div>
+
+      <button id="addBtn" class="add-btn" title="Add Task">
+        +
+      </button>
+    </div>
+
+    <ul id="taskList"></ul>
+
+    <p id="reminder" class="reminder-text">
+      No tasks yet. Add one! 
+    </p>
+
+    <div class="theme-toggle">
+      <span title="Dark Mode">🌙</span>
+
+      <label class="switch">
+        <input type="checkbox" id="themeSwitch" />
+        <span class="slider"></span>
+      </label>
+
+      <span title="Light Mode">☀️</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
