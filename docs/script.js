@@ -68,3 +68,4 @@ function generateAdvice(temp, condition) {
     if (temp < 15) return "🧥 It's cold. Wear warm clothes.";
     return "✅ Weather looks comfortable. Have a great day!";
 }
+
