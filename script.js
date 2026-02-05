@@ -1,84 +1,70 @@
-const taskInput = document.getElementById("taskInput");
-const taskList = document.getElementById("taskList");
-const addBtn = document.getElementById("addBtn");
-const reminder = document.getElementById("reminder");
-const themeSwitch = document.getElementById("themeSwitch");
+const apiKey = "e4ab2c7ab2b1437db0284205261301";
 
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+const cityInput = document.getElementById("cityInput");
+const searchBtn = document.getElementById("searchBtn");
+const locationBtn = document.getElementById("locationBtn");
 
-// Add Task
-addBtn.addEventListener("click", () => {
-  const text = taskInput.value.trim();
-  if (text === "") return;
+const locationEl = document.getElementById("location");
+const localTimeEl = document.getElementById("localTime");
+const tempEl = document.getElementById("temp");
+const conditionEl = document.getElementById("condition");
+const adviceEl = document.getElementById("advice");
+const errorMsg = document.getElementById("errorMsg");
 
-  const today = new Date().toISOString().split("T")[0];
-  const due = prompt("Enter due date (YYYY-MM-DD):", today);
-
-  const task = {
-    text,
-    createdAt: today,
-    dueDate: due,
-    completed: false
-  };
-
-  tasks.push(task);
-  saveTasks();
-  renderTasks();
-  taskInput.value = "";
+searchBtn.addEventListener("click", () => {
+    const city = cityInput.value.trim();
+    if (city) fetchWeatherByCity(city);
 });
 
-// Render Tasks
-function renderTasks() {
-  taskList.innerHTML = "";
-  reminder.style.display = tasks.length ? "none" : "block";
+locationBtn.addEventListener("click", getLocationWeather);
 
-  const today = new Date().toISOString().split("T")[0];
-
-  tasks.forEach((task, index) => {
-    const li = document.createElement("li");
-    li.className = "task";
-
-    if (task.completed) li.classList.add("completed");
-    if (!task.completed && task.dueDate < today) li.classList.add("overdue");
-
-    li.innerHTML = `
-      <div class="left">
-        <input type="checkbox" class="check" ${task.completed ? "checked" : ""}>
-        <div>
-          <p class="task-text">${task.text}</p>
-          <small class="task-date">
-            Created: ${task.createdAt} • Due: ${task.dueDate}
-          </small>
-        </div>
-      </div>
-      <span class="delete">❌</span>
-    `;
-
-    // Checkbox → mark complete
-    li.querySelector(".check").addEventListener("change", (e) => {
-      task.completed = e.target.checked;
-      saveTasks();
-      renderTasks();
-    });
-
-    // Delete task
-    li.querySelector(".delete").addEventListener("click", () => {
-      tasks.splice(index, 1);
-      saveTasks();
-      renderTasks();
-    });
-
-    taskList.appendChild(li);
-  });
+async function fetchWeatherByCity(city) {
+    try {
+        const res = await fetch(
+            `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`
+        );
+        const data = await res.json();
+        if (data.error) throw new Error();
+        updateUI(data);
+    } catch {
+        errorMsg.innerText = "City not found.";
+    }
 }
 
-// Save to localStorage
-function saveTasks() {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+function getLocationWeather() {
+    if (!navigator.geolocation) {
+        errorMsg.innerText = "Location not supported.";
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(async (pos) => {
+        const { latitude, longitude } = pos.coords;
+        const res = await fetch(
+            `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${latitude},${longitude}`
+        );
+        const data = await res.json();
+        updateUI(data);
+    });
 }
 
-themeSwitch.addEventListener("change", () => {
-  document.body.classList.toggle("dark");
-});
+function updateUI(data) {
+    errorMsg.innerText = "";
 
-renderTasks();
+    locationEl.innerText = `${data.location.name}, ${data.location.country}`;
+    localTimeEl.innerText = `Local time: ${data.location.localtime}`;
+
+    tempEl.innerText = data.current.temp_c;
+    conditionEl.innerText = data.current.condition.text;
+
+    adviceEl.innerText = generateAdvice(
+        data.current.temp_c,
+        data.current.condition.text
+    );
+}
+
+function generateAdvice(temp, condition) {
+    if (condition.includes("Rain")) return "🌧 Carry an umbrella. Roads may be slippery.";
+    if (temp > 35) return "☀️ Very hot today. Stay hydrated and avoid going out.";
+    if (temp < 15) return "🧥 It's cold. Wear warm clothes.";
+    return "✅ Weather looks comfortable. Have a great day!";
+}

@@ -1,50 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My To-Do List</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Smart Weather Advisor</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container">
-    <h2>📝 My To-Do List</h2>
+<div class="container">
+    <h2>🌍 Smart Weather Advisor</h2>
 
-    <div class="input-section">
-      <div class="input-box">
-        <span class="icon">🔍</span>
-        <input
-          type="text"
-          id="taskInput"
-          placeholder="Enter your task"
-          autocomplete="off"
-        />
-      </div>
-
-      <button id="addBtn" class="add-btn" title="Add Task">
-        +
-      </button>
+    <div class="search-box">
+        <input type="text" id="cityInput" placeholder="Enter city name">
+        <button id="locationBtn">📍</button>
     </div>
 
-    <ul id="taskList"></ul>
+    <button id="searchBtn">Check Weather</button>
 
-    <p id="reminder" class="reminder-text">
-      No tasks yet. Add one! 
-    </p>
+    <div class="weather-card">
+        <h3 id="location"></h3>
+        <p id="localTime"></p>
 
-    <div class="theme-toggle">
-      <span title="Dark Mode">🌙</span>
+        <div class="temp">
+            <span id="temp"></span>°C
+        </div>
 
-      <label class="switch">
-        <input type="checkbox" id="themeSwitch" />
-        <span class="slider"></span>
-      </label>
+        <p id="condition"></p>
 
-      <span title="Light Mode">☀️</span>
+        <div class="advice-box" id="advice"></div>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <p id="errorMsg"></p>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
