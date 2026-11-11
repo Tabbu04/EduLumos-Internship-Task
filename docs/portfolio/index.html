@@ -1,104 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Humera Tabassum | Software Engineering Intern Candidate</title>
+<meta name="description" content="Humera Tabassum, B.E. AI &amp; ML student building full-stack and AI applications. Projects, experience and contact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<header class="top">
+  <a class="brand" href="#top">Humera Tabassum</a>
+  <nav aria-label="Main">
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<section id="home">
-    <p>This is</p>
-    <h1>HUMERA TABASSUM</h1>
-    <p id="typing-text"></p>
-</section>
-
-<section id="about">
-    <h2>About Me</h2>
-    <p>
-        I am a passionate learner in the field of Artificial Intelligence and Machine Learning.
-        I enjoy working on projects that challenge my skills and help me grow.
+<main id="top">
+  <section class="hero">
+    <p class="status">Final-year B.E. student, AI &amp; ML, MJCET (2027). Open to SDE internships.</p>
+    <h1>Humera<br>Tabassum</h1>
+    <p class="lead">I build full-stack and AI-powered applications, from a civic issue reporter that sorts photos with Gemini to a feedback analyzer that runs a local Llama model.</p>
+    <p class="cta">
+      <a class="btn" href="#projects">See my projects</a>
+      <a class="btn ghost" href="resume.pdf">Download resume</a>
     </p>
-</section>
+  </section>
 
-<section id="projects">
+  <section id="projects">
     <h2>Projects</h2>
+    <p class="hint">Select a project to see what it does and what I built.</p>
 
-    <div class="projects-container">
+    <details class="proj" open>
+      <summary><span class="name">Patchwork</span><span class="kind">Civic issue reporting platform</span><span class="stack">React, Express, Gemini 2.5 Flash</span></summary>
+      <div class="body">
+        <p>Built solo for the Coding Ninjas Vibe2Ship hackathon. Citizens report a local problem with a photo, and the app works out what it is and whether someone already reported it.</p>
+        <ul>
+          <li>AI image categorization classifies each report automatically.</li>
+          <li>Geolocation tagging and duplicate-report detection using the Haversine formula.</li>
+          <li>Community upvoting, a per-issue Impact Score and a dashboard that surfaces high-priority issues.</li>
+        </ul>
+        <!-- add: <p class="links"><a href="YOUR-LIVE-LINK">Live demo</a> <a href="YOUR-GITHUB-LINK">Code</a></p> -->
+      </div>
+    </details>
 
-        <div class="project-card">
-            <div class="project-inner">
-                <div class="project-front">
-                    CodedQuest
-                </div>
-                <div class="project-back">
-                    Interactive programming platform<br>
-                    HTML • CSS • JS • Python • SQL
-                </div>
-            </div>
-        </div>
+    <details class="proj">
+      <summary><span class="name">Restaurant Reservation System</span><span class="kind">Full-stack booking platform</span><span class="stack">MongoDB, Express, React, Node.js</span></summary>
+      <div class="body">
+        <p>Built under a time-boxed internship assignment: a complete booking flow from table availability to confirmation.</p>
+        <ul>
+          <li>RESTful APIs for reservation management with MongoDB for persistent storage.</li>
+          <li>Responsive interface, deployed on Vercel.</li>
+        </ul>
+        <p class="links"><a href="https://restaurant-reservation-system-taupe.vercel.app/">Live demo</a></p>
+      </div>
+    </details>
 
-        <div class="project-card">
-            <div class="project-inner">
-                <div class="project-front">
-                    Anxietify
-                </div>
-                <div class="project-back">
-                    Mental health support app<br>
-                    React • Node • Express • MongoDB
-                </div>
-            </div>
-        </div>
+    <details class="proj">
+      <summary><span class="name">TRINETHRA</span><span class="kind">AI feedback analyzer</span><span class="stack">FastAPI, Llama 3.2 via Ollama</span></summary>
+      <div class="body">
+        <p>Reads supervisor feedback transcripts and turns them into something a reviewer can act on.</p>
+        <ul>
+          <li>Extracts evidence from the transcript and scores it against a rubric.</li>
+          <li>Generates follow-up questions for the next conversation.</li>
+        </ul>
+      </div>
+    </details>
 
-        <div class="project-card">
-            <div class="project-inner">
-                <div class="project-front">
-                    Sentiment Analysis
-                </div>
-                <div class="project-back">
-                    ML text classification model<br>
-                    Python • Scikit-learn • Pandas
-                </div>
-            </div>
-        </div>
+    <details class="proj">
+      <summary><span class="name">ISTIQRAAR</span><span class="kind">Burnout and financial risk simulation</span><span class="stack">Python, SQLite, scikit-learn</span></summary>
+      <div class="body">
+        <p>A platform that models how financial and behavioral factors combine into risk.</p>
+        <ul>
+          <li>Simulation logic and synthetic dataset generation.</li>
+          <li>Dual ensemble ML pipeline with SMOTE to handle class imbalance.</li>
+          <li>Modular backend designed for scalability and data privacy.</li>
+        </ul>
+      </div>
+    </details>
 
+    <details class="proj">
+      <summary><span class="name">Viyapar Sahayak</span><span class="kind">Smart India Hackathon 2026, team CacheMode</span><span class="stack">AI business advisor</span></summary>
+      <div class="body">
+        <p>An AI-powered business advisor for beneficiaries of the margin-money scheme.</p>
+      </div>
+    </details>
+
+    <details class="proj">
+      <summary><span class="name">SkillTrail</span><span class="kind">Smart India Hackathon prototype website</span><span class="stack">Web, deployed on Vercel</span></summary>
+      <div class="body">
+        <p>The prototype website for our Smart India Hackathon entry.</p>
+        <p class="links"><a href="https://skilltrail-ten.vercel.app">Live site</a> <a href="https://github.com/Tabbu04/Skilltrail">Code</a></p>
+      </div>
+    </details>
+
+    <details class="proj">
+      <summary><span class="name">Customer Churn Analysis</span><span class="kind">Data analysis</span><span class="stack">Python, Pandas, Seaborn</span></summary>
+      <div class="body">
+        <p>Analyzed a Telco dataset of 7,032 customers to find what drives churn.</p>
+        <ul>
+          <li>Overall churn rate of 26%, highest among month-to-month contracts.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="proj">
+      <summary><span class="name">Sales Performance Dashboard</span><span class="kind">Business analytics</span><span class="stack">Excel, pivot tables</span></summary>
+      <div class="body">
+        <p>Analyzed 9,000+ rows of retail sales data.</p>
+        <ul>
+          <li>Four pivot tables covering monthly, category, region and customer-segment performance.</li>
+          <li>Interactive dashboard with charts and slicers.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="proj">
+      <summary><span class="name">Internship tasks</span><span class="kind">Portfolio, Smart Weather Advisor, To-Do List</span><span class="stack">HTML, CSS, JavaScript</span></summary>
+      <div class="body">
+        <p>Three browser apps built at EduLumos with no frameworks.</p>
+        <ul>
+          <li>Weather Advisor fetches live data from WeatherAPI.com for a city or your location and turns it into short advice.</li>
+          <li>To-Do List tracks due dates, highlights overdue tasks and keeps data in localStorage.</li>
+        </ul>
+        <p class="links"><a href="https://github.com/Tabbu04/EduLumos-Internship-Task">Code</a></p>
+      </div>
+    </details>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="role">
+      <h3>Frontend Developer Intern, EduLumos</h3>
+      <p class="when">5 January to 5 February 2026, Hyderabad</p>
+      <p>Built three frontend applications with HTML, CSS and JavaScript: a portfolio site, a weather app using a REST API and the Geolocation API, and a task manager with persistent browser storage. Published the code on GitHub.</p>
     </div>
-</section>
+    <div class="role">
+      <h3>Student leadership</h3>
+      <p>Design Head, ACM Student Chapter, MJCET. Events Head, GRSS Club. Design Core, IEEE WIE. Tech Core, GDGC.</p>
+    </div>
+  </section>
 
-<section id="contact">
+  <section id="skills">
+    <h2>Skills</h2>
+    <dl class="skills">
+      <dt>Languages</dt><dd>Python, C, SQL, JavaScript</dd>
+      <dt>Web</dt><dd>HTML5, CSS3, React.js, Node.js, Express.js, FastAPI</dd>
+      <dt>Data and ML</dt><dd>Pandas, NumPy, Matplotlib, Seaborn, scikit-learn, Streamlit</dd>
+      <dt>Databases</dt><dd>MongoDB, SQLite, SQL</dd>
+      <dt>Tools</dt><dd>Git, GitHub, VS Code, Power BI, Excel, Vercel</dd>
+      <dt>Core</dt><dd>Data structures and algorithms, OOP, DBMS</dd>
+    </dl>
+  </section>
+
+  <section id="contact">
     <h2>Contact</h2>
+    <p>Hiring for an SDE internship? Write to me.</p>
+    <ul class="contact">
+      <li><a href="mailto:humeratabasssum31@gmail.com">humeratabasssum31@gmail.com</a></li>
+      <li><a href="https://www.linkedin.com/in/humeratabassum">LinkedIn</a></li>
+      <li><a href="https://github.com/Tabbu04">GitHub</a></li>
+      <li><a href="https://leetcode.com/Tabbu04">LeetCode</a></li>
+    </ul>
+  </section>
+</main>
 
-    <div class="contact-icons">
-        <a href="mailto:humeratabasssum31@gmail.com" target="_blank">
-            <i class="fas fa-envelope"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/humera-tabassum-2a92282a2/" target="_blank">
-            <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://www.instagram.com/humera_tabassum08/" target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
-    </div>
-</section>
-
-<footer>
-    <p>&copy; 2026 Humera Tabassum | Portfolio Website</p>
-</footer>
-
-<script src="script.js"></script>
-
+<footer>© 2026 Humera Tabassum</footer>
 </body>
 </html>
