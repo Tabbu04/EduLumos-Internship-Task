@@ -1,9 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Smart Weather Advisor</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Smart Weather Advisor</h1>
+
+<div class="container">
+    <h2>🌍 Smart Weather Advisor</h2>
+
+    <div class="search-box">
+        <input type="text" id="cityInput" placeholder="Enter city name">
+        <button id="locationBtn">📍</button>
+    </div>
+
+    <button id="searchBtn">Check Weather</button>
+
+    <div class="weather-card">
+        <h3 id="location"></h3>
+        <p id="localTime"></p>
+
+        <div class="temp">
+            <span id="temp"></span>°C
+        </div>
+
+        <p id="condition"></p>
+
+        <div class="advice-box" id="advice"></div>
+    </div>
+
+    <p id="errorMsg"></p>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
