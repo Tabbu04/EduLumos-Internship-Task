@@ -1,38 +1,261 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Smart Weather Advisor</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Internship Projects | EduLumos</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 25px 8%;
+            border-bottom: 1px solid #263449;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+
+        header span {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 85px 20px 55px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid #334155;
+            border-radius: 30px;
+            color: #60a5fa;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 5vw, 52px);
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: #60a5fa;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            max-width: 620px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .projects {
+            max-width: 1100px;
+            margin: 20px auto 80px;
+            padding: 0 25px;
+        }
+
+        .section-title {
+            font-size: 25px;
+            margin-bottom: 30px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 30px;
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #60a5fa;
+        }
+
+        .number {
+            color: #60a5fa;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .icon {
+            font-size: 35px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            font-size: 21px;
+            margin-bottom: 13px;
+        }
+
+        .card p {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.7;
+            min-height: 72px;
+        }
+
+        .tech {
+            color: #60a5fa;
+            font-size: 12px;
+            margin: 20px 0;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .project-link:hover {
+            color: white;
+        }
+
+        .coming {
+            display: inline-block;
+            color: #fbbf24;
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        footer {
+            border-top: 1px solid #263449;
+            text-align: center;
+            padding: 25px;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        @media(max-width: 600px) {
+            header {
+                padding: 20px;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .hero {
+                padding-top: 60px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h2>🌍 Smart Weather Advisor</h2>
+<header>
+    <div class="logo">EduLumos | Internship</div>
+    <span>Web Development Projects</span>
+</header>
 
-    <div class="search-box">
-        <input type="text" id="cityInput" placeholder="Enter city name">
-        <button id="locationBtn">📍</button>
-    </div>
+<section class="hero">
+    <div class="tag">MY INTERNSHIP PORTFOLIO</div>
 
-    <button id="searchBtn">Check Weather</button>
+    <h1>Building Ideas Into <span>Web Experiences.</span></h1>
 
-    <div class="weather-card">
-        <h3 id="location"></h3>
-        <p id="localTime"></p>
+    <p>
+        Welcome to my internship project showcase.
+        Explore the web applications I developed during my
+        EduLumos internship using HTML, CSS and JavaScript.
+    </p>
+</section>
 
-        <div class="temp">
-            <span id="temp"></span>°C
+<section class="projects">
+
+    <h2 class="section-title">My Projects</h2>
+
+    <div class="project-grid">
+
+        <div class="card">
+            <div class="number">PROJECT 01</div>
+            <div class="icon">💻</div>
+
+            <h3>Personal Portfolio Website</h3>
+
+            <p>
+                A personal portfolio website showcasing
+                my profile, skills, projects and professional journey.
+            </p>
+
+            <div class="tech">HTML5 · CSS3 · JavaScript</div>
+
+            <a class="project-link" href="./portfolio/">
+                Explore Portfolio →
+            </a>
         </div>
 
-        <p id="condition"></p>
+        <div class="card">
+            <div class="number">PROJECT 02</div>
+            <div class="icon">🌦️</div>
 
-        <div class="advice-box" id="advice"></div>
+            <h3>Smart Weather Advisor</h3>
+
+            <p>
+                A weather application that provides city-based
+                weather information, location detection and
+                useful weather-related advice.
+            </p>
+
+            <div class="tech">HTML5 · CSS3 · JavaScript · Weather API</div>
+
+            <a class="project-link" href="./weather/">
+                Explore Weather App →
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="number">PROJECT 03</div>
+            <div class="icon">📝</div>
+
+            <h3>To-do List Application</h3>
+
+            <p>
+                A task management application designed to
+                organise daily activities and track tasks efficiently.
+            </p>
+
+            <div class="tech">HTML5 · CSS3 · JavaScript</div>
+
+            <span class="coming">Deployment coming soon</span>
+        </div>
+
     </div>
+</section>
 
-    <p id="errorMsg"></p>
-</div>
+<footer>
+    <p>Developed as part of the EduLumos Internship Programme.</p>
+    <p style="margin-top:8px;">© 2026 · My Internship Projects</p>
+</footer>
 
-<script src="script.js"></script>
 </body>
 </html>
